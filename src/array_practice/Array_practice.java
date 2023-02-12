@@ -12,38 +12,46 @@ public class Array_practice {
 		// Welcome the user to the program
 		System.out.println("This program takes a string and returns the amount of letters in said string");
 		System.out.print("Enter said string: ");
-		Scanner sc = new Scanner (System.in);
-		String scanned = sc.nextLine();
-		//Replace all spaces
-		String scanned1 = scanned.replaceAll("\\s","");
-		//Creates the array of letters (using .toCharArray())
-		char[] ch = scanned1.toCharArray();
-		int ch_length = ch.length;
-				
-		//Print the length of the array
-		for (int i = 1; i <= ch_length; i++)
-		{
-			System.out.print(i);
+		try (Scanner sc = new Scanner (System.in)) {
+			String scanned = sc.nextLine();
+			//Replace all spaces
+			String scanned1 = scanned.replaceAll("\\s","");
+			//Creates the array of letters (using .toCharArray())
+			char[] ch = scanned1.toCharArray();
+			int ch_length = ch.length;
+					
+			//Print the length of the array
+			for (int i = 1; i <= ch_length; i++)
+			{
+				System.out.print(i);
+			}
+			System.out.print("\n");
+			
+			//Print the array elements
+			System.out.print("Char Array: [");
+			for (char c : ch)
+			{
+				System.out.print("'" + c + "'" );
+			}
+			System.out.print("]" + "\n");
+			
+			//Count the occurrence of each element inside "ch" array
+			
+			
+			//Create the Map
+			Map<Character, Integer> m = new HashMap<Character, Integer>();
+				//Place the elements of the array in a Map
+			for (int i = 0; i < ch_length; i++)
+			{
+				char x = (char)Array.getChar(ch, i);
+				m.put(x, i);
+			}
+			System.out.print(m);
+			} catch (ArrayIndexOutOfBoundsException | IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.print("\n");
 		
-		//Print the array elements
-		System.out.print("Char Array: [");
-		for (char c : ch)
-		{
-			System.out.print("'" + c + "'" );
-		}
-		System.out.print("]" + "\n");
-		
-		//Create the Map
-		Map m = new HashMap();
-		m.put("kevin",4);
-		System.out.print(m);
-		
-		
-
-
 	}
-
 
 }
